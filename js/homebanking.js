@@ -16,7 +16,7 @@ function sumarDinero(dineroASumar) {
     saldoCuenta = saldoCuenta + dineroASumar;
 }
 
-function restarDinero(dineroARestar) {
+function restarDiner(dineroARestar) {
     saldoCuenta = saldoCuenta - dineroARestar;
 }
 
