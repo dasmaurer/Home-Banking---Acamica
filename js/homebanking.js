@@ -24,10 +24,9 @@ function restarDinero(dineroARestar) {
 function cambiarLimiteDeExtraccion() {
     var nuevoLimiteExtraccion = prompt("Por favor, indique el nuevo límite de de extracción");
     parseInt (nuevoLimiteExtraccion);
-    var limiteExtraccion = nuevoLimiteExtraccion;
-    alert("Usted ha modificado su límite de extracción. \nAhora puede extraer hasta U$D" +limiteExtraccion);
+    (limiteExtraccion = nuevoLimiteExtraccion)
+    alert("Usted ha modificado su límite de extracción. \nAhora puede extraer hasta U$D" +nuevoLimiteExtraccion);
     actualizarLimiteEnPantalla();
-
 }
 
 function extraerDinero() {  
