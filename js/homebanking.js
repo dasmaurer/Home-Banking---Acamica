@@ -2,7 +2,10 @@
 var nombreUsuario = "Christine Lagarde";
 var saldoCuenta = 1000000;
 var limiteExtraccion = 10000;
-
+var agua = 350;
+var telefono = 425;
+var luz = 210;
+var internet = 570;
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
@@ -33,7 +36,7 @@ function extraerDinero() {
     var extraccion = prompt("Por favor, indique la suma a extraer:");
     parseInt (extraccion);
     if (extraccion > saldoCuenta){
-    alert("El saldo de su cuenta es de U$D:" + saldoCuenta +"\nUsted no puede extraer ese valor porque no dispone de esa suma de niero en su cuenta.");
+    alert("El saldo de su cuenta es de U$D:" + saldoCuenta +"\nUsted no puede extraer ese valor porque no dispone de esa suma de dinero en su cuenta.");
  } else if (extraccion > limiteExtraccion){
     alert("El límite de extracción es de U$D" + limiteExtraccion);
  } else if (extraccion % 100 !=0){
@@ -58,8 +61,23 @@ actualizarSaldoEnPantalla();
 
 }
 
-function pagarServicio() {
-
+function pagarServicio() { //!hacerlo con switch
+    var servicioAPagar = prompt("Por favor, indique el servicio que desea pagar: \n 1. Agua \n 2. Teléfono \n 3. Luz  \n 4. Internet")
+    parseInt(servicioAPagar);
+    if (servicioAPagar == 1) {
+    restarDinero(agua);
+    alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA")
+} else if (servicioAPagar == 2) {
+    restarDinero(telefono);
+    alert("Usted ha pagado el servicio de teléfono. Se han transferido U$D " + telefono + " a la cuenta de Telecom")
+} else if (servicioAPagar == 3) {
+    restarDinero(luz);
+    alert("Usted ha pagado el servicio de luz. Se han transferido U$D " + luz + " a la cuenta de Edenor")
+} else if (servicioAPagar == 4) {
+    restarDinero(internet);
+     alert("Usted ha pagado el servicio de Internet. Se han transferido U$D " + internet + " a la cuenta de Movistar")
+}
+actualizarSaldoEnPantalla();
 }
 
 function transferirDinero() {
