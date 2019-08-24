@@ -61,24 +61,34 @@ actualizarSaldoEnPantalla();
 
 }
 
-function pagarServicio() { //!hacerlo con switch
+function pagarServicio() { 
     var servicioAPagar = prompt("Por favor, indique el servicio que desea pagar: \n 1. Agua \n 2. Teléfono \n 3. Luz  \n 4. Internet")
     parseInt(servicioAPagar);
-    if (servicioAPagar == 1) {
-    restarDinero(agua);
-    alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA")
-} else if (servicioAPagar == 2) {
-    restarDinero(telefono);
-    alert("Usted ha pagado el servicio de teléfono. Se han transferido U$D " + telefono + " a la cuenta de Telecom")
-} else if (servicioAPagar == 3) {
-    restarDinero(luz);
-    alert("Usted ha pagado el servicio de luz. Se han transferido U$D " + luz + " a la cuenta de Edenor")
-} else if (servicioAPagar == 4) {
-    restarDinero(internet);
-     alert("Usted ha pagado el servicio de Internet. Se han transferido U$D " + internet + " a la cuenta de Movistar")
-}
+    switch (servicioAPagar) {
+        case "1":
+        restarDinero(agua);
+        alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA");
+        break;
+        case "2":
+        restarDinero(telefono);
+        alert("Usted ha pagado el servicio de teléfono. Se han transferido U$D " + telefono + " a la cuenta de Telecom");
+        break;
+        case "3":
+        restarDinero(luz);
+        alert("Usted ha pagado el servicio de luz. Se han transferido U$D " + luz + " a la cuenta de Edenor");
+        break;
+        case "4":
+        restarDinero(internet);
+        alert("Usted ha pagado el servicio de Internet. Se han transferido U$D " + internet + " a la cuenta de Movistar")
+        break;
+        default:
+            alert("El código igresado no está asociado a ningun servicio. \n Por favor ingrese un código válido");
+        break;
+    }
 actualizarSaldoEnPantalla();
 }
+
+
 
 function transferirDinero() {
 
