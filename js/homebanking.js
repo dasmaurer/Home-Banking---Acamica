@@ -1,6 +1,6 @@
 //Declaración de variables
 var nombreUsuario = "Christine Lagarde";
-var saldoCuenta = 1000000;
+var saldoCuenta = 1000;
 var limiteExtraccion = 10000;
 var agua = 350;
 var telefono = 425;
@@ -44,9 +44,9 @@ function extraerDinero() {
  } else {
     var saldoAnterior = saldoCuenta;
     restarDinero(dineroARestar = extraccion);
-    actualizarSaldoEnPantalla();
     alert("Ha extraido la suma de U$D " + extraccion + " de su cuenta. \nSu saldo anterior era de:  U$D " + saldoAnterior + "\nSu saldo actual es de: U$D " + saldoCuenta);
-    }
+    actualizarSaldoEnPantalla();
+ }
 }
 
 
@@ -64,27 +64,34 @@ actualizarSaldoEnPantalla();
 function pagarServicio() { 
     var servicioAPagar = prompt("Por favor, indique el servicio que desea pagar: \n 1. Agua \n 2. Teléfono \n 3. Luz  \n 4. Internet")
     parseInt(servicioAPagar);
-    switch (servicioAPagar) {
+if  (saldoCuenta<agua || saldoCuenta<telefono || saldoCuenta<luz || saldoCuenta<internet){
+    alert("No dispone de dinero suficiente para hacer el pago");
+    } else if (saldoCuenta>agua || saldoCuenta>telefono || saldoCuenta>luz || saldoCuenta>internet ){
+  switch (servicioAPagar) {
+        case "=!1" || "=!2" || "=!3" || "=!4" :
+        alert("El código igresado no está asociado a ningun servicio. \n Por favor ingrese un código válido");
+        break;
         case "1":
-        restarDinero(agua);
-        alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA");
+            restarDinero(agua);
+            alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA");
         break;
         case "2":
-        restarDinero(telefono);
-        alert("Usted ha pagado el servicio de teléfono. Se han transferido U$D " + telefono + " a la cuenta de Telecom");
+            restarDinero(telefono);
+            alert("Usted ha pagado el servicio de teléfono. Se han transferido U$D " + telefono + " a la cuenta de Telecom");
         break;
         case "3":
-        restarDinero(luz);
-        alert("Usted ha pagado el servicio de luz. Se han transferido U$D " + luz + " a la cuenta de Edenor");
+            restarDinero(luz);
+            alert("Usted ha pagado el servicio de luz. Se han transferido U$D " + luz + " a la cuenta de Edenor");
         break;
         case "4":
-        restarDinero(internet);
-        alert("Usted ha pagado el servicio de Internet. Se han transferido U$D " + internet + " a la cuenta de Movistar")
+            restarDinero(internet);
+            alert("Usted ha pagado el servicio de Internet. Se han transferido U$D " + internet + " a la cuenta de Movistar")
         break;
         default:
             alert("El código igresado no está asociado a ningun servicio. \n Por favor ingrese un código válido");
         break;
     }
+}
 actualizarSaldoEnPantalla();
 }
 
