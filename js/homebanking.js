@@ -1,11 +1,18 @@
 //Declaración de variables
 var nombreUsuario = "Christine Lagarde";
-var saldoCuenta = 1000;
-var limiteExtraccion = 10000;
+var saldoCuenta = 10000;
+var limiteExtraccion = 1000;
+//Servicios
 var agua = 350;
 var telefono = 425;
 var luz = 210;
 var internet = 570;
+//Cuentas amigas
+var cuentaAmiga1 = "1234567";
+var cuentaAmiga2 = "7654321";
+//Código de Seguridad
+var codigoDeSeguridad = 1234;
+
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
@@ -16,6 +23,10 @@ window.onload = function() {
 
 
 //Funciones que tenes que completar
+
+
+
+
 function sumarDinero(dineroASumar) {
     saldoCuenta = saldoCuenta + dineroASumar;
 }
@@ -68,7 +79,7 @@ if  (saldoCuenta<agua || saldoCuenta<telefono || saldoCuenta<luz || saldoCuenta<
     alert("No dispone de dinero suficiente para hacer el pago");
     } else if (saldoCuenta>agua || saldoCuenta>telefono || saldoCuenta>luz || saldoCuenta>internet ){
   switch (servicioAPagar) {
-        case "=!1" || "=!2" || "=!3" || "=!4" :
+        case "!=1" || "!=2" || "!=3" || "!=4" :
         alert("El código igresado no está asociado a ningun servicio. \n Por favor ingrese un código válido");
         break;
         case "1":
@@ -98,12 +109,43 @@ actualizarSaldoEnPantalla();
 
 
 function transferirDinero() {
-
+    var montoATransferir = prompt ("Ingrese el monto a transferir")
+    parseInt(montoATransferir);
+    if (montoATransferir>saldoCuenta) {
+        alert("Usted no dispone suficiente dinero para realizar la transferencia. \nSu saldo es de: U$D" +saldoCuenta);
+    } else {
+        prompt("Por favor, ingrese el número de cuenta a la que desea transferirle U$D" + montoATransferir);
+    switch (montoATransferir) {
+        case "1234567":
+            restarDinero(dineroARestar = montoATransferir);
+            alert("Se ha transferido la suma de U$D" +montoATransferir+ "a" + cuentaAmiga1);
+        break;
+        case "7654321":
+            restarDinero(dineroARestar = montoATransferir);
+            alert("Se ha transferido la suma de U$D" + montoATransferir + "a" + cuentaAmiga2);
+        break;
+        case "!=1234567" && "!=7654321":
+        alert("el numero ingresado no esta asociado a ninguna cuenta amiga");
+        break;
+    }
+}
+actualizarSaldoEnPantalla();
 }
 
+
+var codigoIngresado = prompt ("Por favor, ingrese el código de seguridad para operar");
+parseInt(codigoIngresado);
+if (codigoIngresado!=codigoDeSeguridad){
+    alert("El código ingresado no corresponde al código que tenemos registrado. \n Por razones de seguridad el saldo de su cuenta ha sido retenido y no podrá operar en esta sesión");
+    saldoCuenta = 0;
+}else if (codigoIngresado==codigoDeSeguridad){
 function iniciarSesion() {
-
+ alert("Bienvenido/a" + nombreUsuario + "\nUsted puede comenzar a operar");
+actualizarSaldoEnPantalla();
 }
+}
+
+
 
 //Funciones que actualizan el valor de las variables en el HTML
 function cargarNombreEnPantalla() {
