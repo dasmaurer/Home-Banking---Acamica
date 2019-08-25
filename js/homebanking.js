@@ -77,11 +77,10 @@ function pagarServicio() {
     parseInt(servicioAPagar);
 if  (saldoCuenta<agua || saldoCuenta<telefono || saldoCuenta<luz || saldoCuenta<internet){
     alert("No dispone de dinero suficiente para hacer el pago");
-    } else if (saldoCuenta>agua || saldoCuenta>telefono || saldoCuenta>luz || saldoCuenta>internet ){
+} else if (agua.isNaN || telefono.isNaN || luz.isNaN || internet.isNaN || "!=1" || "!=2" || "!=3" || "!=4") {
+    alert("La elección indicada no corresponde a ningun servicio adherido");
+} else if (saldoCuenta>agua || saldoCuenta>telefono || saldoCuenta>luz || saldoCuenta>internet ){
   switch (servicioAPagar) {
-        case "!=1" || "!=2" || "!=3" || "!=4" :
-        alert("El código igresado no está asociado a ningun servicio. \n Por favor ingrese un código válido");
-        break;
         case "1":
             restarDinero(agua);
             alert("Usted ha pagado el servicio de agua. Se han transferido U$D " + agua + " a la cuenta de AySA");
