@@ -118,17 +118,18 @@ function transferirDinero() {
         alert("El monto ingresado no es un número");
     } else {
         console.log((montoATransferir))
-        prompt("Por favor, ingrese el número de cuenta a la que desea transferirle U$D" + montoATransferir);
-    switch ((cuentaAmiga1 || cuentaAmiga2)) {
+       var cuentaATransferir = prompt("Por favor, ingrese el número de cuenta a la que desea transferirle U$D" + montoATransferir);
+        parseInt(cuentaATransferir);
+    switch (cuentaATransferir) {
         case "1234567":
             console.log("se ejecutó amiga1")
             restarDinero(montoATransferir);
-            alert("Se ha transferido la suma de U$D" +montoATransferir+ "a" + cuentaAmiga1);
+            alert("Se ha transferido la suma de U$D" + montoATransferir + " a" + cuentaAmiga1);
         break;
         case "7654321":
                 console.log("se ejecutó amiga2")
             restarDinero(montoATransferir);
-            alert("Se ha transferido la suma de U$D" + montoATransferir + "a" + cuentaAmiga2);
+            alert("Se ha transferido la suma de U$D" + montoATransferir + " a" + cuentaAmiga2);
         break;
         case "!=1234567" && "!=7654321":
         alert("el numero ingresado no esta asociado a ninguna cuenta amiga");
