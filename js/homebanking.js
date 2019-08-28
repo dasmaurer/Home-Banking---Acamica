@@ -31,9 +31,11 @@ function sumarDinero(dineroASumar) {
     saldoCuenta = saldoCuenta + dineroASumar;
 }
 
+
 function restarDinero(dineroARestar) {
     saldoCuenta = saldoCuenta - dineroARestar;
 }
+
 
 function cambiarLimiteDeExtraccion() {
     var nuevoLimiteExtraccion = prompt("Por favor, indique el nuevo límite de de extracción");
@@ -42,6 +44,8 @@ function cambiarLimiteDeExtraccion() {
     alert("Usted ha modificado su límite de extracción. \nAhora puede extraer hasta U$D" +nuevoLimiteExtraccion);
     actualizarLimiteEnPantalla();
 }
+
+
 
 function extraerDinero() {  
     var extraccion = prompt("Por favor, indique la suma a extraer:");
@@ -67,18 +71,17 @@ function depositarDinero() {
     parseInt (deposito);
     var saldoAnterior = saldoCuenta;
     sumarDinero(dineroASumar = deposito);
-alert("Ha depositado la suma de U$D " + deposito + " en su cuenta. \nSu saldo anterior era de:  U$D " + saldoAnterior + "\nSu saldo actual es de: U$D " + saldoCuenta);
+    alert("Ha depositado la suma de U$D " + deposito + " en su cuenta. \nSu saldo anterior era de:  U$D " + saldoAnterior + "\nSu saldo actual es de: U$D " + saldoCuenta);
 actualizarSaldoEnPantalla();
-
 }
+
+
 
 function pagarServicio() { 
     var servicioAPagar = prompt("Por favor, indique el servicio que desea pagar: \n 1. Agua \n 2. Teléfono \n 3. Luz  \n 4. Internet")
     parseInt(servicioAPagar);
 if  (saldoCuenta<agua || saldoCuenta<telefono || saldoCuenta<luz || saldoCuenta<internet){
     alert("No dispone de dinero suficiente para hacer el pago");
-} else if (agua.isNaN || telefono.isNaN || luz.isNaN || internet.isNaN || "!=1" || "!=2" || "!=3" || "!=4") {
-    alert("La elección indicada no corresponde a ningun servicio adherido");
 } else if (saldoCuenta>agua || saldoCuenta>telefono || saldoCuenta>luz || saldoCuenta>internet ){
   switch (servicioAPagar) {
         case "1":
@@ -106,21 +109,25 @@ actualizarSaldoEnPantalla();
 }
 
 
-
 function transferirDinero() {
     var montoATransferir = prompt ("Ingrese el monto a transferir")
     parseInt(montoATransferir);
     if (montoATransferir>saldoCuenta) {
         alert("Usted no dispone suficiente dinero para realizar la transferencia. \nSu saldo es de: U$D" +saldoCuenta);
+    } else if (isNaN(montoATransferir)) {
+        alert("El monto ingresado no es un número");
     } else {
+        console.log((montoATransferir))
         prompt("Por favor, ingrese el número de cuenta a la que desea transferirle U$D" + montoATransferir);
-    switch (montoATransferir) {
+    switch ((cuentaAmiga1 || cuentaAmiga2)) {
         case "1234567":
-            restarDinero(dineroARestar = montoATransferir);
+            console.log("se ejecutó amiga1")
+            restarDinero(montoATransferir);
             alert("Se ha transferido la suma de U$D" +montoATransferir+ "a" + cuentaAmiga1);
         break;
         case "7654321":
-            restarDinero(dineroARestar = montoATransferir);
+                console.log("se ejecutó amiga2")
+            restarDinero(montoATransferir);
             alert("Se ha transferido la suma de U$D" + montoATransferir + "a" + cuentaAmiga2);
         break;
         case "!=1234567" && "!=7654321":
@@ -130,6 +137,7 @@ function transferirDinero() {
 }
 actualizarSaldoEnPantalla();
 }
+
 
 
 var codigoIngresado = prompt ("Por favor, ingrese el código de seguridad para operar");
